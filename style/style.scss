@@ -1,0 +1,837 @@
+@use "fonts";
+@use "colors";
+
+
+@mixin transition {
+    transition: 0.2s ease-in all;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+}
+
+button, input {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-block;
+}
+
+body {
+    width: 1440px;
+    max-width: 100%;
+    font-family: fonts.$ff-primary;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+// General Styling
+
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.top {
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: 3.5rem;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    color: colors.$clr-primary-one;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 5rem;
+}
+
+.descr {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 35px;
+}
+
+
+
+
+.btn {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: colors.$clr-primary-one;
+    text-transform: capitalize;
+}
+
+.btn--rectangle {
+    padding: 1rem 1.5rem;
+    border-radius: 7px;
+}
+
+.btn--oval {
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+}
+
+.btn--green {
+    background: colors.$clr-accent-two;
+    @include transition();
+}
+
+.btn--green:hover {
+    background: colors.$clr-primary-one;
+    color: colors.$clr-accent-two;
+}
+
+.btn--transparent {
+    border: colors.$clr-primary-one;
+    border: 3.3px colors.$clr-primary-one solid;
+    @include transition();
+}
+
+.btn--transparent:hover {
+    background: colors.$clr-primary-one;
+    color: colors.$clr-accent-one;
+}
+
+.btn--transform {
+    @include transition();
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.btn + .btn {
+    margin-left: 2rem;
+}
+
+// Header Styling
+
+.header {
+    background-color: #DAAC00;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    &__right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo {
+        font-size: 3rem;
+        color: colors.$clr-primary-one;
+        font-weight: 700;
+    }
+    .fa-paw {
+        margin-right: 1rem;
+    }
+    &__nav-list {
+        display: flex;
+    }
+    &__nav-link a {
+        color: colors.$clr-primary-one;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-right: 2rem;
+        @include transition();
+        &:hover {
+            color: lighten(colors.$clr-accent-one, 30%);
+        }
+    }
+    &__search {
+        height: 3.2rem;
+        display: flex;
+        
+    }
+    &__input {
+        background-color: colors.$clr-accent-one;
+        height: 100%;
+        padding: 0 1rem;
+        font-size: 0.95rem;
+        &[placeholder] {
+            color: colors.$clr-primary-one;
+            font-family: fonts.$ff-primary;
+        }
+        &:focus {
+            outline: 1.5px solid colors.$clr-accent-two;
+        }
+    }
+    &__submit-container {
+        position: relative;
+        background: colors.$clr-accent-two;
+        height: 100%;
+        width: 51px;
+        cursor: pointer;
+        @include transition();
+
+        &:hover {
+            background: darken(colors.$clr-accent-two, 5%);
+        }
+    }
+    .fa-search {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        font-size: 2rem;
+        transform: translate(50%, -50%);
+        color: #fff;
+    }
+}
+
+// End of Header Styling
+
+
+
+// Hero styling
+    .hero {
+        background: colors.$clr-accent-one;
+        &__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 5.625rem;
+            padding-bottom: 6.5rem;
+        }
+        &__left {
+            margin-right: 6.4rem;
+            max-width: 41.5rem;
+        }
+        &__title {
+            font-size: 4.125rem;
+            font-weight: 600;
+            color: colors.$clr-primary-one;
+            line-height: 4.5rem;
+            margin-bottom: 1rem;
+        }
+        &__descr {
+            color: colors.$clr-primary-one;
+            margin-bottom: 3rem;
+        }
+
+    }
+// End of Hero styling
+
+
+
+
+// Lover styling
+    .lover {
+        background: colors.$clr-primary-one;
+        &__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 6.75rem;
+            padding-bottom: 6.75rem;
+        }
+        &__left {
+            margin-right: 3rem;
+        }
+        &__descr {
+            font-weight: 400;
+            font-size: 1.3rem;
+            line-height: 35px;
+        }
+
+
+        &__title {
+            color: colors.$clr-primary-two;
+            font-weight: 600;
+            font-size: 3.125rem;
+            line-height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        &__descr {
+            color: colors.$clr-primary-two;
+            margin-bottom: 3rem;
+        }
+        &__btn {
+            background: colors.$clr-accent-one;
+            border: 3px colors.$clr-accent-one solid;
+            @include transition();
+            &:hover {
+                background-color: colors.$clr-primary-one;
+                border: 3px colors.$clr-accent-one solid;
+                color: colors.$clr-accent-one;
+            }
+        }
+    }
+// End of Lover styling
+
+
+
+
+
+// Services styling
+
+    .services {
+        background: colors.$clr-accent-one;
+        &__inner {
+            padding-top: 4.125rem;
+            padding-bottom: 5.75rem;
+        }
+
+        &__descr {
+            color: colors.$clr-primary-one;
+        }
+
+        &__column + &__column {
+            margin-left: 4.2rem;
+        }
+        &__column {
+            &-img {
+                margin-bottom: 2rem;
+            }
+            &-text {
+                text-align: center;
+            }
+            &-title {
+                font-size: 2.3rem;
+                font-weight: 600;
+                color: colors.$clr-primary-one;
+                line-height: 45px;
+                margin-bottom: 0.5rem;
+            }
+            &-descr {
+                font-size: 1.15rem;
+                font-weight: 400;
+                color: colors.$clr-primary-one;
+                line-height: 30px;
+            }
+        }
+    }
+// End of Services styling
+
+
+
+
+// Services bottom styling
+    .services {
+        &__price {
+            display: inline-block;
+            color: colors.$clr-primary-one;
+            font-weight: 600;
+            font-size: 1.5rem;
+            &--old {
+                text-decoration: line-through;
+                margin-right: 1rem;
+            }
+        }
+        &__btn {
+            margin-top: 1rem;
+            text-align: center;
+        }
+    }
+
+
+// End of Services bottom styling
+
+
+
+
+// Team styling
+
+    .team {
+        background: colors.$clr-primary-one;
+        &__inner {
+            padding-top: 5.125rem;
+            padding-bottom: 5.75rem;
+        }
+        &__top {
+            text-align: center;
+        }
+        &__title {
+            color: colors.$clr-primary-two;
+        }
+        &__column + &__column {
+            margin-left: 4.2rem;
+        }
+        &__column {
+            &-img {
+
+                margin-bottom: 2rem;
+            }
+            &-text {
+                text-align: center;
+                margin-bottom: 1.25rem;
+            }
+        }
+        &__name {
+            color: colors.$clr-primary-two;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 35px;
+        }
+        &__job {
+            color: colors.$clr-primary-two;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 30px;
+            text-transform: uppercase;
+        }
+        &__social {
+            text-align: center;
+            &-item {
+                font-size: 1.5rem;
+                color: darken(colors.$clr-accent-one, 10%);
+                @include transition();
+                &:hover {
+                    color: colors.$clr-accent-one;
+                    transform: scale(1.1);
+                }
+            }
+            &-item + &-item {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+// End of Team styling
+
+
+
+
+// Clients styling
+
+    .clients {
+        background-image: linear-gradient(to top, rgba(colors.$clr-accent-one, 0.8), rgba(colors.$clr-accent-one, 0.8)),
+        url(../img/clients__background-img.jpg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        &__inner {
+            padding: 10rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+        &__item {
+            text-align: center;
+        }
+        &__item span {
+            display: block;
+        }
+        &__item img {
+            margin: 0 auto 2.8rem auto;
+        }
+        &__number {
+            color: colors.$clr-primary-one;
+            font-weight: 500;
+            font-size: 2rem;
+        }
+        &__title {
+            color: colors.$clr-primary-one;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+    }
+
+// End of Clients styling
+
+
+
+// Posts styling
+
+    .posts {
+        &__inner {
+            padding-top: 5.125rem;
+            padding-bottom: 5.75rem;
+        }
+        &__column {
+            border: 1.5px #D6D6D6 solid;
+            background: rgba(darken(colors.$clr-primary-one, 10%), 0.2);
+            &-text {
+                padding: 1.625rem 2rem;
+            }
+            &-title {
+                font-size: 1.625rem;
+                font-weight: 600;
+                color: colors.$clr-primary-two;
+                line-height: 30px;
+                margin-bottom: 0.5rem;
+            }
+            &-time {
+                font-size: 1rem;
+                font-weight: 400;
+                color: #00BEC9;
+                text-transform: uppercase;
+                margin-bottom: 1.25rem;
+            }
+            &-descr {
+                font-size: 1rem;
+                font-weight: 400;
+                color: colors.$clr-primary-two;
+                line-height: 20px;
+                margin-bottom: 2.3rem;
+            }
+            &-btn {
+                font-size: 1.25rem;
+                font-weight: 500;
+                color: #00BEC9;
+                @include transition();
+                &:hover {
+                    color: darken(#00BEC9, 10%);
+                }
+            }
+        }
+        &__column + &__column {
+            margin-left: 2.275rem;
+        }
+        &__title {
+            color: colors.$clr-primary-two;
+        }
+    }
+
+// End of Posts styling
+
+
+
+// Footer styling
+
+    .footer {
+        background: #343434;
+        &__inner {
+            padding: 5rem 0 7rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        &__left {
+            display: flex;
+        }
+        &__right {
+            text-align: right;
+        }
+        &__column + &__column {
+            margin-left: 6.25rem;
+        }
+        &__nav {
+            &-title {
+                color: colors.$clr-primary-one;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1.25rem;
+            }
+            &-link a {
+                color: colors.$clr-primary-one;
+                font-size: 1.1rem;
+                font-weight: 400;
+                line-height: 30px;
+                @include transition();
+                &:hover {
+                    color: colors.$clr-accent-one;
+                }
+            }
+        }
+        &__title {
+            font-size: 1.5rem;
+            color: colors.$clr-primary-one;
+            font-weight: 600;
+        }
+        &__descr {
+            font-size: 1.1rem;
+            color: colors.$clr-primary-one;
+            margin-bottom: 2rem;
+        }
+        &__input-container {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        &__email {
+            width: 100%;
+            height: 60px;
+            background: #DAAC00;
+            padding: 0 1rem;
+            &:focus {
+                outline: 1.5px solid colors.$clr-accent-two;
+            }
+            &[placeholder] {
+                color: colors.$clr-primary-two;
+                font-size: 0.8rem;
+                font-weight: 500;
+                font-family: fonts.$ff-primary;
+            }
+        }
+        &__submit-btn {
+            background-color: colors.$clr-accent-two;
+            width: 20%;
+            height: 60px;
+            cursor: pointer;
+            background-image: url(../img/footer__submit-img.svg);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            @include transition();
+            &:hover {
+                background-color: darken(colors.$clr-accent-two, 5%);
+            }
+        }
+        &__social-item {
+            color: colors.$clr-primary-one;
+            font-size: 2rem;
+            @include transition();
+            &:hover {
+                color: colors.$clr-accent-two;
+                transform: scale(1.1);
+            }
+        }
+        &__social-item + &__social-item {
+            margin-left: 0.5rem;
+        }
+    }
+
+// End of Footer styling
+
+
+
+
+// ***** Media ***** //
+
+@media (max-width: 1125px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1025px) {
+    html {
+        font-size: 13px;
+    }
+    iframe {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 880px) {
+    .hero {
+        &__left {
+          margin-right: 3.4rem;
+        max-width: 35.5rem;  
+        }
+    }
+    iframe {
+        max-width: 400px;
+        height: 400px;
+    }
+
+    .services {
+        &__column + &__column {
+            margin-left: 2rem;
+        }
+    }
+}
+
+
+
+
+
+
+@media (max-width: 769px) {
+    html {
+        font-size: 13px;
+    }
+    .posts {
+        &__bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        &__column {
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            margin-bottom: 3rem;
+            & img {
+                width: 100%;
+            }
+        }
+        &__column + &__column {
+            margin-left: 0;
+        }
+    }
+}
+
+
+@media (max-width: 720px) {
+    .header {
+        &__inner {
+            flex-direction: column;
+        }
+        &__left {
+            margin-bottom: 1rem;
+        }
+        &__right {
+            flex-direction: column;
+        }
+        &__nav {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+    }
+
+    .hero {
+        &__right {
+            display: none;
+        }
+        &__left {
+            margin: 0 auto;
+            max-width: 80%;
+            text-align: center;
+        }
+    }
+
+    .lover {
+        &__right {
+            display: none;
+        }
+        &__left {
+            margin: 0 auto;
+            max-width: 80%;
+            text-align: center;
+        }
+    }
+    .bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+    
+     .services {
+        &__column {
+            margin: 0 auto;
+            &-text {
+                width: 80%;
+                margin: 0 auto;
+            }
+            &-img {
+                margin: 0 auto;
+                margin-bottom: 1rem;
+            }
+            }
+            &__column + &__column {
+                margin-top: 3rem;
+                margin-left: auto;
+            }
+        }
+
+    .team {
+        &__column {
+            &-text {
+                margin-bottom: 0;
+            }
+            &-img {
+                margin-bottom: 1rem;
+            }
+        }
+        &__social {
+            margin-bottom: 3rem;
+        }
+        &__column + &__column {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .footer {
+        &__inner {
+            justify-content: space-evenly;
+        }
+        &__left {
+            flex-direction: column;
+        }
+        &__right {
+            align-self: center;
+        }
+        &__column + &__column {
+            margin-left: 0;
+            margin-top: 3rem;
+        }
+    }
+}
+
+
+@media (max-width: 560px) {
+    .clients {
+        &__inner {
+            flex-direction: column;
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+        }
+        &__item + &__item {
+            margin-top: 4rem;
+        }
+        &__item img {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    iframe {
+        max-width: 300px;
+    }
+
+    .posts {
+        &__bottom {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+    }
+
+    .footer {
+        &__inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+        }
+        &__left {
+            margin: 0 auto;
+            flex-direction: row;
+            margin-bottom: 5rem;
+        }
+        &__column + &__column {
+            margin-top: 0;
+            margin-left: 4rem;
+        }
+        &__right {
+            align-self: flex-start;
+        }
+    }
+}
+
+@media (max-width: 402px) {
+    .hero {
+        .btn + .btn {
+            margin-left: 1rem;
+            margin-top: 1.5rem;
+        }
+        &__title {
+            font-size: 3.4rem;
+        }
+    }
+}
